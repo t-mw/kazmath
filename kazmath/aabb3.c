@@ -108,9 +108,9 @@ kmBool kmAABB3IntersectsAABB(const kmAABB3* box, const kmAABB3* other) {
     kmScalar bry = (other->max.y - other->min.y) * 0.5;
     kmScalar brz = (other->max.z - other->min.z) * 0.5;
 
-    kmBool x = abs(acx - bcx) <= (arx + brx);
-    kmBool y = abs(acy - bcy) <= (ary + bry);
-    kmBool z = abs(acz - bcz) <= (arz + brz);
+    kmBool x = fabsf(acx - bcx) <= (arx + brx);
+    kmBool y = fabsf(acy - bcy) <= (ary + bry);
+    kmBool z = fabsf(acz - bcz) <= (arz + brz);
 
     return x && y && z;
 }
